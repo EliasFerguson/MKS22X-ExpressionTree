@@ -85,8 +85,10 @@ public class ExpressionTree{
   /*return the expression as an infix notation string with parenthesis*/
   /* The sample tree would be: "(3 + (2 * 10))"     */
   public String toString(){
-    
-    return "";
+    if (this.isValue()) return this.getValue() + "";
+    else {
+      return "(" + this.getLeft().toStringPostfix() + " " + this.getOp() + " "+ this.getRight().toStringPostfix() + ")";
+    }
   }
 
   /*return the expression as a postfix notation string without parenthesis*/
