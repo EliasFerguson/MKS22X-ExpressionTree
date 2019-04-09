@@ -87,9 +87,10 @@ public class ExpressionTree{
   public String toString(){
     if (this.isValue()) return this.getValue() + "";
     else {
-      return "(" + this.getLeft().toStringPostfix() + " " + this.getOp() + " "+ this.getRight().toStringPostfix() + ")";
+      return "(" + this.getLeft().toString() + " " + this.getOp() + " "+ this.getRight().toString() + ")";
     }
   }
+
 
   /*return the expression as a postfix notation string without parenthesis*/
   /* The sample tree would be: "3 2 10 * +"     */
@@ -106,7 +107,7 @@ public class ExpressionTree{
   public String toStringPrefix(){
     if (this.isValue()) return this.getValue() + "";
     else {
-      return this.getOp() + " " + this.getLeft().toStringPostfix() + " " + this.getRight().toStringPostfix();
+      return this.getOp() + " " + this.getLeft().toStringPrefix() + " " + this.getRight().toStringPrefix();
     }
   }
 
